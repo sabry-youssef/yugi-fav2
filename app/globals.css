@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@400;600;700&family=Raleway:wght@300;400;500;600&display=swap');
+
+:root {
+  --gold: #c9a84c;
+  --gold-light: #e8c96a;
+  --gold-dim: #7a6230;
+  --bg: #0a0806;
+  --bg-card: #110e09;
+  --bg-elevated: #1a1510;
+  --border: #2a2218;
+  --border-gold: #3a2f1a;
+  --text: #e8dcc8;
+  --text-dim: #7a6e5c;
+  --text-muted: #4a4236;
+  --accent: #8b1a1a;
+  --accent-bright: #c0392b;
+  --shadow-gold: 0 0 40px rgba(201, 168, 76, 0.08);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Subtle noise texture overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 2px; }
+
+/* Selection */
+::selection { background: var(--gold-dim); color: var(--gold-light); }
