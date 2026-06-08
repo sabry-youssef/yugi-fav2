@@ -63,21 +63,25 @@ export default function Leaderboard() {
           </div>
         ) : (
           <div className={styles.list}>
-            {data.map((entry, i) => (
-              <div key={entry.archetype} className={`${styles.row} ${i < 3 ? styles[`rank${i+1}` as keyof typeof styles] : ''}`}>
-                <div className={styles.rank}>{i + 1}</div>
-                <div className={styles.name}>{entry.archetype}</div>
-                <div className={styles.barWrap}>
-                  <div
-                    className={styles.bar}
-                    style={{ width: `${(entry.votes / maxVotes) * 100}%` }}
-                  />
+            {data.map((entry) => {
+              const trueRank = data.filter(e => e.votes > entry.votes).length + 1
+              const rankClass = trueRank <= 3 ? styles[`rank${trueRank}` as keyof typeof styles] : ''
+              return (
+                <div key={entry.archetype} className={`${styles.row} ${rankClass ?? ''}`}>
+                  <div className={styles.rank}>{trueRank}</div>
+                  <div className={styles.name}>{entry.archetype}</div>
+                  <div className={styles.barWrap}>
+                    <div
+                      className={styles.bar}
+                      style={{ width: `${(entry.votes / maxVotes) * 100}%` }}
+                    />
+                  </div>
+                  <div className={styles.count}>
+                    {entry.votes} <span className={styles.countLabel}>{entry.votes === 1 ? 'fan' : 'fans'}</span>
+                  </div>
                 </div>
-                <div className={styles.count}>
-                  {entry.votes} <span className={styles.countLabel}>{entry.votes === 1 ? 'fan' : 'fans'}</span>
-                </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
         )}
 
