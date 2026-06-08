@@ -11,7 +11,7 @@ export async function GET() {
         FROM votes
         GROUP BY archetype
         ORDER BY votes DESC, archetype ASC
-        LIMIT 100
+
       `,
       sql`SELECT COUNT(DISTINCT archetype) as count FROM votes`,
     ])
