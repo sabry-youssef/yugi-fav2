@@ -5,7 +5,7 @@ import { createHash } from 'crypto'
 function getIpHash(req: NextRequest): string {
   const forwarded = req.headers.get('x-forwarded-for')
   const ip = forwarded ? forwarded.split(',')[0].trim() : 'unknown'
-  return createHash('sha256').update(ip + process.env.IP_SALT ?? 'yugi-salt').digest('hex')
+  return createHash('sha256').update(ip + (process.env.IP_SALT ?? 'yugi-salt')).digest('hex')
 }
 
 export async function POST(req: NextRequest) {
