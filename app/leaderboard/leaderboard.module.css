@@ -226,3 +226,99 @@
   .row { grid-template-columns: 2rem 1fr auto; gap: 0.6rem; }
   .barWrap { display: none; }
 }
+
+.groupWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.groupRow {
+  width: 100%;
+  cursor: pointer;
+  background: none;
+  text-align: left;
+  font-family: inherit;
+}
+
+.groupRow:hover {
+  border-color: var(--gold) !important;
+}
+
+.groupIcon {
+  font-size: 0.7rem;
+  margin-right: 0.5rem;
+  color: var(--gold-dim);
+  flex-shrink: 0;
+}
+
+.groupBadge {
+  margin-left: 0.6rem;
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.05em;
+  background: rgba(201,168,76,0.08);
+  border: 1px solid rgba(201,168,76,0.15);
+  padding: 0.1rem 0.4rem;
+  border-radius: 2px;
+  white-space: nowrap;
+}
+
+.subList {
+  border-left: 2px solid var(--gold-dim);
+  margin-left: 2.5rem;
+  margin-bottom: 0.35rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.3rem 0;
+}
+
+.subRow {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.45rem 0.9rem;
+  background: rgba(201,168,76,0.03);
+  border: 1px solid rgba(201,168,76,0.08);
+  border-radius: 2px;
+}
+
+.subName {
+  font-size: 0.82rem;
+  color: #a09070;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.subBarWrap {
+  width: 80px;
+  height: 2px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.subBar {
+  height: 100%;
+  background: var(--gold-dim);
+  border-radius: 2px;
+}
+
+.subCount {
+  font-family: 'Cinzel', serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--gold-dim);
+  white-space: nowrap;
+  text-align: right;
+  min-width: 4rem;
+}
+
+@media (max-width: 600px) {
+  .subList { margin-left: 1rem; }
+  .subBarWrap { display: none; }
+  .subRow { grid-template-columns: 1fr auto; }
+}
