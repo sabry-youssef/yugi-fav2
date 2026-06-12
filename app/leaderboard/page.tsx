@@ -132,7 +132,7 @@ export default function Leaderboard() {
                       <div className={styles.name}>
                         <span className={styles.groupIcon}>{isOpen ? '▾' : '▸'}</span>
                         {entry.label}
-                        <span className={styles.groupBadge}>{entry.members.length} archetypes</span>
+                        
                       </div>
                       <div className={styles.barWrap}>
                         <div className={styles.bar} style={{ width: `${(entry.totalVotes / maxVotes) * 100}%` }} />
